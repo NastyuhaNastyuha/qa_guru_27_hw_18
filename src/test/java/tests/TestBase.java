@@ -15,6 +15,8 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.timeout = 10000;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         WebDriverManager.chromedriver().setup();
     }
 
