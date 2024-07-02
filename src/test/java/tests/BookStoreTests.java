@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Тесты для Book Store Application demoqa.com")
 public class BookStoreTests extends TestBase {
 
     @Test
@@ -26,5 +27,6 @@ public class BookStoreTests extends TestBase {
         step.addBookToProfileApi(loginResponse, isbn);
         step.setAuthCookie(loginResponse);
         step.deleteBookFromProfileUI();
+        step.deleteProfileApi(loginResponse);
     }
 }

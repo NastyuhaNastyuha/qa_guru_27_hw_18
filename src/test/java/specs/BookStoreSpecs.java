@@ -33,5 +33,8 @@ public class BookStoreSpecs {
             .log(ALL)
             .build();
 
-
+    public static ResponseSpecification responseStatusCode204Spec = new ResponseSpecBuilder()
+            .expectStatusCode(204)
+            .log(ALL)
+            .build();
 }

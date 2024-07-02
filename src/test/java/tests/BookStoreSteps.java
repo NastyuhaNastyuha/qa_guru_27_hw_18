@@ -5,7 +5,6 @@ import models.AddListOfBookBodyModel;
 import models.LoginResponseModel;
 import models.RegisterUserBodyModel;
 import models.RegisterUserResponseModel;
-import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.Cookie;
 import pages.ProfilePage;
 
@@ -16,7 +15,6 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.restassured.RestAssured.given;
 import static specs.BookStoreSpecs.*;
 
-@DisplayName("Тесты для Book Store Application demoqa.com")
 public class BookStoreSteps {
 
     @Step("Создать нового пользователя")
@@ -100,5 +98,17 @@ public class BookStoreSteps {
         page.openPage()
                 .deleteBook()
                 .checkThatBooksListIsEmpty();
+    }
+
+    @Step("Удалить профиль пользователя")
+    public void deleteProfileApi(LoginResponseModel loginResponse) {
+        given(authorizedRequestSpec(loginResponse.getToken()))
+
+                .when()
+                .delete("/Account/v1/User/" + loginResponse.getUserId())
+
+                .then()
+                .spec(responseStatusCode204Spec)
+                .extract().response();
     }
 }
