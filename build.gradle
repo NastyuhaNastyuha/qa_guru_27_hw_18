@@ -50,3 +50,9 @@ tasks.withType(Test) {
         }
     }
 }
+
+task book_store_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("bookStore")
+    }
+}

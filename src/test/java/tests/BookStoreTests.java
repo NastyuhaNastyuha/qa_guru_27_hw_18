@@ -4,11 +4,13 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import models.LoginResponseModel;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class BookStoreTests extends TestBase {
 
     @Test
+    @Tag("bookStore")
     @DisplayName("Проверка удаления книги из профиля пользователя")
     void deleteBookFromProfileBooksListTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
