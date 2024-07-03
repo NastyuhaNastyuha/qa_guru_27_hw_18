@@ -46,7 +46,6 @@ public class BookStoreSteps {
 
                 .then()
                 .spec(responseStatusCode200Spec)
-                //.extract().as(LoginResponseModel.class);
                 .extract().response();
     }
 
